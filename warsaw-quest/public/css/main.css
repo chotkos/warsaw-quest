@@ -1354,3 +1354,7 @@ input[type="text"] {
 .main-content {
     padding-bottom: 50px;
 }
+
+li {
+    line-height: initial!important;
+}

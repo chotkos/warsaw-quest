@@ -36,7 +36,7 @@ if (Meteor.isClient) {
             Blaze._globalHelpers.globalTemplate.newStoryQuests.push(newOne);
             var x = Blaze._globalHelpers.globalTemplate.newStoryQuests;
             Session.set('newStoryQuests', x);
-
+            $('.rerender').trigger("create");
             return false;
         }
     });

@@ -1,9 +1,8 @@
 <template name="questCreateForm">
+    <ul>
+        {{#each newStoryQuests}} {{> questListItem}} {{/each}}
+    </ul>
     <div class="form-group" id="questData">
-
-        {{#each newStoryQuests}} {{> questListItem}}
-        <br/> {{/each}}
-
         <form id="itemForm">
             <textarea class="form-control" rows="5" id="description"></textarea>
             <h4>Password:</h4>
@@ -15,5 +14,6 @@
 
 
 <template name="questListItem">
-    <p>{{stepNumber}} - {{description}} - {{password}}</p>
+    <li class="rerender">{{stepNumber}} - {{description}} - {{password}}</li>
+    <br/>
 </template>
