@@ -12,7 +12,7 @@ if (Meteor.isClient) {
         }).fetch()[0];
     };
     
-    Template.body.helpers.quests = getQuestsByStore(Template.body.helpers.currentGame,Template.body.helpers.questFormStep);
+    //Template.body.helpers.quests = getQuestsByStore(Template.body.helpers.currentGame,Template.body.helpers.questFormStep);
 
     Template.playStoryForm.events({
         'submit form': function (event) {

@@ -25,9 +25,9 @@ if (Meteor.isClient) {
             event.preventDefault();
             var desc = event.target.description.value;
             var pass = event.target.password.value;
-            var newOne = questFactory.makeAQuest(Template.body.helpers.newStoryQuests.length, desc, pass, null);
-            Template.body.helpers.newStoryQuests.push(newOne);
-
+            var newOne = questFactory.makeAQuest(Blaze._globalHelpers.globalTemplate.newStoryQuests.length, desc, pass, null);
+            Blaze._globalHelpers.globalTemplate.newStoryQuests.push(newOne);
+            console.log(Blaze._globalHelpers);
             return false;
         }
     });

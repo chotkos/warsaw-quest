@@ -24,14 +24,18 @@ if (Meteor.isClient) {
         }
     });
     */
-    Template.body.helpers({
+    var globalTemplate = {
         showPlayStoryForm: true,
         showMyStories: true,
         currentGame: null,
         showQuestForm: false,
         questFormStep: 0,
         newStoryQuests: [],
-    });
+    };
+    
+    Template.registerHelper('globalTemplate',globalTemplate);
+    
+    
 
     Accounts.ui.config({
         passwordSignupFields: "USERNAME_ONLY"
