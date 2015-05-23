@@ -30,8 +30,6 @@ if (Meteor.isClient) {
         showQuestForm: false,
         questFormStep: 0,
     });
-    var user = Meteor.user();
-    console.log(user);
 
     Accounts.ui.config({
         passwordSignupFields: "USERNAME_ONLY"

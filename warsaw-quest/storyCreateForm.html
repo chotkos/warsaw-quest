@@ -1,0 +1,31 @@
+<template name="storyCreateForm">
+    <form id="mainForm">
+        <label>
+            <h3>Stwórz nową grę:</h3>
+        </label>
+        <div class="form-group" id="mainData">
+            <input type="text" class="form-group" id="newGameName">
+            <ul>
+                {{#each newStory.quests}} {{> questListItem}} {{/each}}
+            </ul>
+            <input type="submit" class="btn btn-success" id="playGame" value="Stwórz!" />
+        </div>
+        <div class="form-group" id="questData">
+            <form id="itemForm">
+                <textarea class="form-control" rows="5" id="description"></textarea>
+                <br/>
+                <p>Password:</p>
+                <br/>
+                <input type="text" class="form-group" id="password">
+                <input type="submit" class="btn btn-success" id="newQuest" value="Dodaj zadanie" />
+            </form>
+        </div>
+    </form>
+</template>
+
+
+<template name="questListItem">
+    <li>
+        <p>{{description}} - {{password}}</p>
+    </li>
+</template>

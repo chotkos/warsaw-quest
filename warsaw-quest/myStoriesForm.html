@@ -1,7 +1,12 @@
 <template name="myStoriesForm">
-    <ul>
-        {{#each myStories}} {{> storyListItem}} {{/each}}
-    </ul>
+    <div class="form-group">
+        <label>
+            <h3>Twoje gry:</h3>
+        </label>
+        <ul>
+            {{#each myStories}} {{> storyListItem}} {{/each}}
+        </ul>
+    </div>
 </template>
 
 

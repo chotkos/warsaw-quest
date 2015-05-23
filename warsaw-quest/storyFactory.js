@@ -6,6 +6,7 @@ var StoryFactory = {
             quests: quests,
             startDate: startDate,
             authorId: authorId,
+            winner: null,
             create: function () {
                 Storys.insert(this);
             },
