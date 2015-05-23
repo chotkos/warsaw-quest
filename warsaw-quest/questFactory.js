@@ -11,7 +11,6 @@ var questFactory = {
             update: function () {
                 Quests.update(this);
             },
-
         };
     }
 };

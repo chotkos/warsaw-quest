@@ -1,12 +1,8 @@
 <template name="showQuestForm">
-    <div class="form-group">
-        <div class="row">
-            <label> {{description}} </label>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <label> {{description}} </label>
-        </div>
-    </div>
+    {{#each qusts}} {{> questListItem}} {{/each}}
+</template>
+
+
+<template name="questListItem">
+    
 </template>
