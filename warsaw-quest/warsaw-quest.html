@@ -4,8 +4,8 @@
 </head>
 
 <body>
-    {{> loginButtons}}
-    <br/> {{> playStoryForm}}
+    {{> loginButtons}} {{#if showPlayStoryForm}}
+    <br/> {{> playStoryForm}}{{/if}}
 </body>
 <!--
 <template name="hello">
