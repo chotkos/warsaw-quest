@@ -1357,4 +1357,5 @@ input[type="text"] {
 
 li {
     line-height: initial!important;
+    list-style: none;
 }

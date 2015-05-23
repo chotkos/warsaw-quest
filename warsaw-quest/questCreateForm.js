@@ -11,6 +11,7 @@ if (Meteor.isClient) {
         makeAQuest: function (stepNumber, description, password, storyId) {
             return {
                 stepNumber: stepNumber,
+                viewStepNumber: stepNumber + 1,
                 description: description,
                 password: password,
                 storyId: storyId,
