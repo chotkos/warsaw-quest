@@ -22,57 +22,55 @@
 </head>
 
 <body>
-<<<<<<< Updated upstream
-{{> loginButtons}} {{#if showPlayStoryForm}}
-    <br/> {{> playStoryForm}}{{/if}}
-=======
-<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <div class="logo-center">
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+    <br/>
+    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo-center">
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <div class="text-center login-button">{{> loginButtons}}</div>
+
+        </div>
+    </header>
+    <!--/header-->
+    <section id="main-slider" class="no-margin">
+
+        <div class="col-sm-12 main-content">
+            <div class="transparent-container"> {{#if showPlayStoryForm}}{{> playStoryForm}}{{/if}}
             </div>
         </div>
-        <div class="text-center login-button">{{> loginButtons}}</div>
 
-    </div>
-</header>
-<!--/header-->
-<section id="main-slider" class="no-margin">
+    </section>
+    <!--/#main-slider-->
 
-    <div class="col-sm-12 main-content"></div>
-
-</section>
-<!--/#main-slider-->
-
-<footer id="footer" class="midnight-blue">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
-                               title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
-                All Rights Reserved.
-            </div>
-            <div class="col-sm-6">
-                <ul class="pull-right">
-                    <li><a href="#">About Us</a>
-                    </li>
-                    <li><a href="#">Faq</a>
-                    </li>
-                    <li><a href="#">Contact Us</a>
-                    </li>
-                    <!--#gototop-->
-                </ul>
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="#">About Us</a>
+                        </li>
+                        <li><a href="#">Faq</a>
+                        </li>
+                        <li><a href="#">Contact Us</a>
+                        </li>
+                        <!--#gototop-->
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-<!--/#footer-->
+    </footer>
+    <!--/#footer-->
 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
->>>>>>> Stashed changes
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
 </body>
 <!--
 <template name="hello">

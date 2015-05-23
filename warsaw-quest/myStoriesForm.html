@@ -1,5 +1,10 @@
 <template name="myStoriesForm">
-    <li>
-        <ul></ul>
-    </li>
+    <ul>
+        {{#each myStories}} {{> storyListItem}} {{/each}}
+    </ul>
+</template>
+
+
+<template name="storyListItem">
+    <li>{{name}} - {{startDate}}</li>
 </template>

@@ -23,7 +23,7 @@ if (Meteor.isClient) {
     Template.body.helpers({
         showPlayStoryForm: true,
         currentGame: null,
-        showQuestForm = false
+        showQuestForm: false
     });
 
 
