@@ -1,10 +1,13 @@
 Storys = new Mongo.Collection("story");
 Quests = new Mongo.Collection("quest");
+//new Mongo.Collection("users");
 var isPlaying = false;
 
 if (Meteor.isClient) {
     Meteor.subscribe("story");
     Meteor.subscribe("quest");
+    //Meteor.subscribe("users");
+
     // counter starts at 0
     /*
     Template.hello.helpers({
@@ -22,10 +25,13 @@ if (Meteor.isClient) {
     */
     Template.body.helpers({
         showPlayStoryForm: true,
+        showMyStories: true,
         currentGame: null,
-        showQuestForm: false
+        showQuestForm: false,
+        questFormStep: 0,
     });
-
+    var user = Meteor.user();
+    console.log(user);
 
     Accounts.ui.config({
         passwordSignupFields: "USERNAME_ONLY"

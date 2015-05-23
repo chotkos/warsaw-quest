@@ -39,12 +39,12 @@
     <section id="main-slider" class="no-margin">
 
         <div class="col-sm-12 container main-content">
+            {{#if currentUser}}
             <div class="text-center row form-block" id="play-story-container"> {{#if showPlayStoryForm}}{{> playStoryForm}}{{/if}}{{ currentUser.profile }}
             </div>
-            <div class="text-center row form-block" id="play-story-container2"> {{#if showPlayStoryForm}}{{> playStoryForm}}{{/if}}{{ currentUser.profile }}
+            <div class="text-center row form-block" id="play-story-container2"> {{#if showMyStoriesForm}}{{> myStoriesForm}}{{/if}}{{ currentUser.profile }}
             </div>
-            <div class="text-center row form-block" id="play-story-container3"> {{#if showPlayStoryForm}}{{> playStoryForm}}{{/if}}{{ currentUser.profile }}
-            </div>
+            {{/if}}
         </div>
 
     </section>
