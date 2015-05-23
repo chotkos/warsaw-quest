@@ -1349,6 +1349,7 @@ input[type="text"] {
     -webkit-border-radius: 5px !important;
     -moz-border-radius: 5px !important;
     background-color: transparent !important;
+    color: rgba( 255, 255, 255, 1)!important;
 }
 
 .main-content {
