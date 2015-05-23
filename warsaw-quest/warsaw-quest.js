@@ -1,5 +1,6 @@
 Storys = new Mongo.Collection("story");
 Quests = new Mongo.Collection("quest");
+var kutas = "kutas";
 //new Mongo.Collection("users");
 var isPlaying = false;
 
