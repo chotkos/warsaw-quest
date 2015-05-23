@@ -1,11 +1,78 @@
 <head>
     <title>Warsaw-Quest</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | Flat Theme</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="public/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
 <body>
-    {{> loginButtons}} {{#if showPlayStoryForm}}
+<<<<<<< Updated upstream
+{{> loginButtons}} {{#if showPlayStoryForm}}
     <br/> {{> playStoryForm}}{{/if}}
+=======
+<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="logo-center">
+                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+            </div>
+        </div>
+        <div class="text-center login-button">{{> loginButtons}}</div>
+
+    </div>
+</header>
+<!--/header-->
+<section id="main-slider" class="no-margin">
+
+    <div class="col-sm-12 main-content"></div>
+
+</section>
+<!--/#main-slider-->
+
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
+                               title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
+                All Rights Reserved.
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="#">About Us</a>
+                    </li>
+                    <li><a href="#">Faq</a>
+                    </li>
+                    <li><a href="#">Contact Us</a>
+                    </li>
+                    <!--#gototop-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/#footer-->
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+>>>>>>> Stashed changes
 </body>
 <!--
 <template name="hello">
