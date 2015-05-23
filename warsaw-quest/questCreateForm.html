@@ -1,5 +1,9 @@
 <template name="questCreateForm">
     <div class="form-group" id="questData">
+
+        {{#each newStoryQuests}} {{> questListItem}}
+        <br/> {{/each}}
+
         <form id="itemForm">
             <textarea class="form-control" rows="5" id="description"></textarea>
             <h4>Password:</h4>
@@ -7,4 +11,9 @@
             <input type="submit" class="btn btn-success" id="newQuest" value="Dodaj zadanie" />
         </form>
     </div>
+</template>
+
+
+<template name="questListItem">
+    <p>{{stepNumber}} - {{description}} - {{password}}</p>
 </template>

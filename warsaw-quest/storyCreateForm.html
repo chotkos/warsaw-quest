@@ -6,18 +6,9 @@
             </label>
             <div class="form-group" id="mainData">
                 <input type="text" class="form-group" id="newGameName">
-                <ul>
-                    {{#each newStoryQuests}} {{> questListItem}} {{/each}}
-                </ul>
+
             </div>
             <input type="submit" class="btn btn-success" id="playGame" value="Stwórz!" />
         </form>
     </div>
-</template>
-
-
-<template name="questListItem">
-    <li>
-        <p>{{description}} - {{password}}</p>
-    </li>
 </template>

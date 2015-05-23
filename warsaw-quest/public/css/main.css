@@ -1340,9 +1340,7 @@ input {
     margin-right: auto;
     width: 90%;
     max-width: 400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    padding: 10px 10px 10px 10px;
 }
 
 textarea,

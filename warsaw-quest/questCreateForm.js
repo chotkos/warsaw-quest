@@ -1,5 +1,12 @@
 if (Meteor.isClient) {
 
+    Session.set('newStoryQuests', []);
+
+    Template.questCreateForm.helpers({
+        newStoryQuests: function () {
+            return Session.get('newStoryQuests');
+        }
+    });
     var questFactory = {
         makeAQuest: function (stepNumber, description, password, storyId) {
             return {
@@ -27,7 +34,9 @@ if (Meteor.isClient) {
             var pass = event.target.password.value;
             var newOne = questFactory.makeAQuest(Blaze._globalHelpers.globalTemplate.newStoryQuests.length, desc, pass, null);
             Blaze._globalHelpers.globalTemplate.newStoryQuests.push(newOne);
-            console.log(Blaze._globalHelpers);
+            var x = Blaze._globalHelpers.globalTemplate.newStoryQuests;
+            Session.set('newStoryQuests', x);
+
             return false;
         }
     });

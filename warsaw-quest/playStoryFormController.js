@@ -19,9 +19,12 @@ if (Meteor.isClient) {
             var res = getStoryByName(value);
             if (res.length > 0) {
                 res = res[0];
-                Template.body.helpers.currentGame = res;
-                Template.body.helpers.showPlayStoryForm = false;
-                Template.body.helpers.showQuestForm = true;
+                Blaze._globalHelpers.globalTemplate.currentGame = res;
+                Blaze._globalHelpers.globalTemplate.showPlayStoryForm = false;
+                Blaze._globalHelpers.globalTemplate.showQuestForm = true;
+                //Template.body.helpers.currentGame = res;
+                //Template.body.helpers.showPlayStoryForm = false;
+                //Template.body.helpers.showQuestForm = true;
             }
 
             return false;

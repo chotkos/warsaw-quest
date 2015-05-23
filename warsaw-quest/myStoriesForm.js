@@ -14,7 +14,8 @@ if (Meteor.isClient) {
     }
 
     function func() {
-        Template.body.helpers.myStories = getStoriesBy(loggedUserId);
+        Blaze._globalHelpers.globalTemplate.myStories = getStoriesBy(loggedUserId);
+        //Template.body.helpers.myStories = getStoriesBy(loggedUserId);
         console.log('getstories done');
     }
 
