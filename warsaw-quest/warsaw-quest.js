@@ -29,6 +29,7 @@ if (Meteor.isClient) {
         currentGame: null,
         showQuestForm: false,
         questFormStep: 0,
+        newStoryQuests: [],
     });
 
     Accounts.ui.config({
