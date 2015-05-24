@@ -1289,17 +1289,25 @@ ul.faq li > div h3 {
     background-size: 100% 100%;
 }
 
-.login-button {
+.login-buttonn {
     margin-top: 1em;
     margin-bottom: 1em;
     font-size: 20px!important;
+    margin-left:60%!important 
 }
+
+ #login-buttons{
+        line-height: 50px !important;
+    }
 
 @media(max-width:767px) {
     .logo-center {
         display: flex;
         flex-direction: row;
         justify-content: center;
+    }
+    #login-buttons{
+        line-height: 20px !important;
     }
     #main-slider {
         background-image: url('../images/background.jpg');
@@ -1308,6 +1316,10 @@ ul.faq li > div h3 {
         background-size: cover;
         padding-top: 150px;
         background-position: center;
+    }
+    .login-buttonn{
+        margin-left:auto!important;
+        margin-right:auto!important;
     }
 }
 
@@ -1364,4 +1376,16 @@ li {
 .logo-img {
     width: 280px;
     height: auto;
+}
+
+#play-story-container3 > div > ul{
+    -webkit-padding-start: 0px!important;
+    -moz-padding-start:0px!important;
+    padding-start:0px!important;
+}
+
+.form-block > div > ul{
+     -webkit-padding-start: 0px!important;
+    -moz-padding-start:0px!important;
+    padding-start:0px!important;   
 }
