@@ -33,7 +33,7 @@
 
 body {
     padding-top: 80px;
-    color: #34495e;
+    color: #34495e!important;
     background: #f5f5f5;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -1293,12 +1293,12 @@ ul.faq li > div h3 {
     margin-top: 1em;
     margin-bottom: 1em;
     font-size: 20px!important;
-    margin-left:60%!important 
+    margin-left: 60%!important;
 }
 
- #login-buttons{
-        line-height: 50px !important;
-    }
+#login-buttons {
+    line-height: 50px !important;
+}
 
 @media(max-width:767px) {
     .logo-center {
@@ -1306,7 +1306,7 @@ ul.faq li > div h3 {
         flex-direction: row;
         justify-content: center;
     }
-    #login-buttons{
+    #login-buttons {
         line-height: 20px !important;
     }
     #main-slider {
@@ -1317,9 +1317,9 @@ ul.faq li > div h3 {
         padding-top: 150px;
         background-position: center;
     }
-    .login-buttonn{
-        margin-left:auto!important;
-        margin-right:auto!important;
+    .login-buttonn {
+        margin-left: auto!important;
+        margin-right: auto!important;
     }
 }
 
@@ -1378,14 +1378,19 @@ li {
     height: auto;
 }
 
-#play-story-container3 > div > ul{
+#play-story-container3 > div > ul {
     -webkit-padding-start: 0px!important;
-    -moz-padding-start:0px!important;
-    padding-start:0px!important;
+    -moz-padding-start: 0px!important;
+    padding-start: 0px!important;
 }
 
-.form-block > div > ul{
-     -webkit-padding-start: 0px!important;
-    -moz-padding-start:0px!important;
-    padding-start:0px!important;   
+.form-block > div > ul {
+    -webkit-padding-start: 0px!important;
+    -moz-padding-start: 0px!important;
+    padding-start: 0px!important;
+}
+
+#login-username,
+#login-password {
+    color: black!important;
 }
