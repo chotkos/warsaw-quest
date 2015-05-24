@@ -2,6 +2,8 @@ if (Meteor.isClient) {
     Meteor.subscribe('quests');
     Session.set('gameWon', null);
     Session.set('youWinner', null);
+    Session.set('currentStep', 0);
+
 
     var getQuestsByStory = function (story, stepNumber) {
         return Quests.find({
@@ -35,17 +37,29 @@ if (Meteor.isClient) {
             //Session.set('counter', Session.get('counter') + 1);
             event.preventDefault();
             var value = event.target.password.value;
-            //var res = getQuestsByStore(Template.body.helpers.currentGame, Template.body.helpers.questFormStep);
-            var res = getQuestsByStory(Session.get('story'), Blaze._globalHelpers.globalTemplate.questFormStep);
+            //var res = getQuestsByStore(Template.body.helpers.currentGame, Template.body.helpers.questFormStep)
+            var res = getQuestsByStory(Session.get('story'), Session.get('currentStep'));
             if (res.length > 0 && res[0].password == value) {
+                console.log(value);
                 res = res[0];
-                Blaze._globalHelpers.globalTemplate.questFormStep++;
-                Session.set('currentQuest', getQuestsByStory(Session.get('story'), Blaze._globalHelpers.globalTemplate.questFormStep)[0]);
+                Session.set('currentStep', Session.get('currentStep') + 1);
+                Session.set('currentQuest', getQuestsByStory(Session.get('story'), Session.get('currentStep'))[0]);
                 if (Session.get('currentQuest') === undefined) {
                     Session.set('gameWon', "Brawo wykonałeś wszystkie zadania!");
                     var story = Storys.find({
                         _id: Session.get('story')._id
                     }).fetch()[0];
+                    
+                    var array = story.completedUsersId;
+                    array.push(Meteor.userId());
+
+                    Storys.update({
+                        _id: story._id
+                    }, {
+                        $set: {
+                            'completedUsersId': array
+                        }
+                    });
 
                     var addPoints = function (p) {
                         var user = Meteor.users.find({
@@ -77,10 +91,7 @@ if (Meteor.isClient) {
                         });
                         //dodaj 3 pkt
                         addPoints(3);
-
                     } else {
-
-                        //dodaj 1 pkt
                         addPoints(1);
                     }
                 } else {
@@ -94,6 +105,10 @@ if (Meteor.isClient) {
             event.preventDefault();
             Session.set('showPlayStoryForm', true);
             Session.set('showQuestFormVisible', false);
+            Session.set('currentQuest', null);
+            Session.set('currentStep', 0)
+            Session.set('gameWon', null);
+            Session.set('youWinner', null);
             return false;
         }
     });

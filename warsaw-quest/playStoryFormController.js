@@ -1,8 +1,9 @@
 if (Meteor.isClient) {
+    Session.set('storyError',null); 
     Template.playStoryForm.helpers({
-        /*counter: function () {
-            return Session.get('counter');
-        }*/
+        storyError: function(){
+            return Session.get('storyError');   
+        }
     });
     
     var getQuestsByStory = function (story, stepNumber) {
@@ -24,7 +25,7 @@ if (Meteor.isClient) {
             event.preventDefault();
             var value = event.target.gameName.value;
             var res = getStoryByName(value);
-            if (res.length > 0) {
+            if (res.length > 0 && res[0].completedUsersId.indexOf(Meteor.userId()) === -1) {
                 res = res[0];
                 Blaze._globalHelpers.globalTemplate.currentGame = res;
                 Session.set('story',res);
@@ -37,6 +38,8 @@ if (Meteor.isClient) {
                 //Template.body.helpers.showQuestForm = true;
                 Session.set('currentQuest', getQuestsByStory(Session.get('story'), Blaze._globalHelpers.globalTemplate.questFormStep)[0]);
             }
+            else if(res.length === 0) Session.set('storyError','Gra o takiej nazwie nie istnieje');
+            else Session.set('storyError','Już grałeś w tę grę');
 
             return false;
         }

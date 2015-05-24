@@ -9,6 +9,7 @@ if (Meteor.isClient) {
                 startDate: startDate,
                 authorId: authorId,
                 winner: null,
+                completedUsersId: [],
                 update: function () {
                     Storys.update(this);
                 },
