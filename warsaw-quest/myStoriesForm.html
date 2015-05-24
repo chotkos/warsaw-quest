@@ -4,12 +4,12 @@
             <h3>Twoje gry:</h3>
         </label>
         <ul>
-            {{#each myStories}} {{> storyListItem}} {{/each}}
+            {{#each getMyStories}} {{> storyListItem}} {{/each}}
         </ul>
     </div>
 </template>
 
 
 <template name="storyListItem">
-    <li>{{name}} - {{startDate}}</li>
+    <li>{{name}} {{#if winner}} {{winner}} {{/if}}</li>
 </template>

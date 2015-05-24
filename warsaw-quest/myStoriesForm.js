@@ -1,4 +1,5 @@
 if (Meteor.isClient) {
+    Meteor.subscribe("story");
 
     var loggedUserId = Meteor.userId();
 
@@ -7,6 +8,15 @@ if (Meteor.isClient) {
             authorId: userId,
         }).fetch();
     };
+
+
+    Template.myStoriesForm.helpers({
+        getMyStories: function () {
+            return Storys.find({
+                authorId: Meteor.userId()
+            }).fetch();
+        }
+    });
 
 
     if (loggedUserId) {
