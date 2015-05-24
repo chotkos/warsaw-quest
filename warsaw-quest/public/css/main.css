@@ -1407,4 +1407,7 @@ li {
 
 .error-info{
     line-height:20px;
+    font-weight: 700;
+    font-size:16px;
+    color: #e87777!important;
 }

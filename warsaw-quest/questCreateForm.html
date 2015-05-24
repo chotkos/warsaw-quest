@@ -6,10 +6,10 @@
         <form id="itemForm">
             <h4>Zadanie:</h4>
             <textarea class="form-control" rows="5" id="description"></textarea>
-            {{#if descError }}<div class="text-warning error-info">{{ descError }}</div>{{/if}}
+            {{#if descError }}<div class="text-danger error-info">{{ descError }}</div>{{/if}}
             <h4>Rozwiązanie:</h4>
             <input type="text" class="form-group" id="password">
-            {{#if passError }}<div class="text-warning error-info">{{ passError }}</div>{{/if}}
+            {{#if passError }}<div class="text-danger error-info">{{ passError }}</div>{{/if}}
             <input type="submit" class="btn btn-success fancy-button" id="newQuest" value="Dodaj zadanie" />
         </form>
     </div>

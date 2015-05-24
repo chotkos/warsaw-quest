@@ -5,7 +5,7 @@
                 <h3>Wpisz nazwę gry:</h3>
             </label>
             <input type="text" class="form-group" id="gameName">
-            {{#if storyError }}<div class="text-warning error-info">{{ storyError }}</div>{{/if}}
+            {{#if storyError }}<div class="text-danger error-info">{{ storyError }}</div>{{/if}}
             <input type="submit" class="btn btn-success fancy-button" id="playGame" value="Zaczynam!" />
         </div>
     </form>
