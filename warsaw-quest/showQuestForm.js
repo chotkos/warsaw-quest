@@ -1,33 +1,41 @@
 if (Meteor.isClient) {
-    Template.showQuestForm.helpers({
-        /*counter: function () {
-            return Session.get('counter');
-        }*/
-    });
+    Meteor.subscribe('quests');
 
-    var getQuestsByStore = function (storeId, stepNumber) {
-        return Storys.find({
-            storeId: storeId,
+    var getQuestsByStory = function (story, stepNumber) {
+        return Quests.find({
+            storyId: story._id,
             stepNumber: stepNumber,
-        }).fetch()[0];
+        }).fetch();
     };
 
-    //Template.body.helpers.quests = getQuestsByStore(Template.body.helpers.currentGame,Template.body.helpers.questFormStep);
+    Template.showQuestForm.helpers({
+        story: function () {
+            return Session.get('story');
+        },
+        quests: function () {
+            return Quests.find({
+                storyId: Session.get('story')._id
+            }).fetch();
+        },
+        currentQuest: function () {
+            return Session.get('currentQuest');
+        }
+    });
 
-    Template.playStoryForm.events({
+    Template.showQuestForm.events({
         'submit form': function (event) {
             //Session.set('counter', Session.get('counter') + 1);
             event.preventDefault();
+            console.log('adsadsad');
             var value = event.target.password.value;
             //var res = getQuestsByStore(Template.body.helpers.currentGame, Template.body.helpers.questFormStep);
-            var res = getQuestsByStore(Blaze._globalHelpers.globalTemplate.currentGame, Blaze._globalHelpers.globalTemplate.questFormStep);
-
+            var res = getQuestsByStory(Session.get('story'), Blaze._globalHelpers.globalTemplate.questFormStep);
             if (res.length > 0 && res[0].password == value) {
+                console.log('dupa');
                 res = res[0];
                 Blaze._globalHelpers.globalTemplate.questFormStep++;
-                Blaze._globalHelpers.globalTemplate.quests = getQuestsByStore(Blaze._globalHelpers.globalTemplate.currentGame, Blaze._globalHelpers.globalTemplate.questFormStep);
+                Session.set('currentQuest', getQuestsByStory(Session.get('story'), Blaze._globalHelpers.globalTemplate.questFormStep)[0]);
             }
-
             return false;
         }
     });

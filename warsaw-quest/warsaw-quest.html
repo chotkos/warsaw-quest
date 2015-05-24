@@ -40,14 +40,20 @@
 
         <div class="col-sm-12 container main-content">
             {{#if currentUser}}
-            <div class="text-center row form-block" id="play-story-container"> {{> playStoryForm}}
-            </div>
+            {{#if showPlayStoryForm }}
+            <div class="text-center row form-block" id="play-story-container"> {{> playStoryForm}}</div>
+            
             <div class="text-center row form-block" id="play-story-container2"> {{> myStoriesForm}}
             </div>
             <div class="text-center row form-block" id="play-story-container3">
                 <div class="col-sm-12">{{> storyCreateForm}}</div>
                 <div class="col-sm-12">{{>questCreateForm}}</div>
             </div>
+            {{/if}}
+            {{ showQuestFormVisible }}
+            {{#if showQuestFormVisible}}
+            <div class="text-center row form-block" id="play-story-container4">{{>showQuestForm}}</div>
+            {{/if}}
             {{/if}}
         </div>
 
