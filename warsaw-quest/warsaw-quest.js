@@ -10,6 +10,7 @@ if (Meteor.isClient) {
     //Meteor.subscribe("users");
 
     Session.set('showPlayStoryForm',true);
+    Session.set('showQuestFormVisible',false);
     
     // counter starts at 0
     
