@@ -1394,3 +1394,13 @@ li {
 #login-password {
     color: black!important;
 }
+
+.fancy-button {
+    background-color: #1bbc9b !important;
+    border-bottom-color: #1bbc9b !important;
+    border-left-color: #1bbc9b !important;
+    border-right-color: #1bbc9b !important;
+    border-bottom-color: #1bbc9b !important;
+    background: #1bbc9b;
+    color: #ffffff;
+}
