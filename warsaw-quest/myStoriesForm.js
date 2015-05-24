@@ -3,30 +3,24 @@ if (Meteor.isClient) {
 
     var loggedUserId = Meteor.userId();
 
-    var getStoriesBy = function (userId) {
-        return Storys.find({
-            authorId: userId,
-        }).fetch();
-    };
-
-
     Template.myStoriesForm.helpers({
         getMyStories: function () {
-            return Storys.find({
+            var arr = Storys.find({
                 authorId: Meteor.userId()
             }).fetch();
+            return arr.slice(Math.max(arr.length - 5, 1)).reverse();
         }
     });
 
+    /*
+        if (loggedUserId) {
+            window.setTimeout(func, 2000);
+        }
 
-    if (loggedUserId) {
-        window.setTimeout(func, 2000);
-    }
-
-    function func() {
-        Blaze._globalHelpers.globalTemplate.myStories = getStoriesBy(loggedUserId);
-        //Template.body.helpers.myStories = getStoriesBy(loggedUserId);
-        console.log('getstories done');
-    }
-
+        function func() {
+            Blaze._globalHelpers.globalTemplate.myStories = getStoriesBy(loggedUserId);
+            //Template.body.helpers.myStories = getStoriesBy(loggedUserId);
+            console.log('getstories done');
+        }
+    */
 }
