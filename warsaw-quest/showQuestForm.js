@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
     Meteor.subscribe('quests');
     Session.set('gameWon', null);
-    Session.set('youWinner',null);
+    Session.set('youWinner', null);
 
     var getQuestsByStory = function (story, stepNumber) {
         return Quests.find({
@@ -46,8 +46,27 @@ if (Meteor.isClient) {
                     var story = Storys.find({
                         _id: Session.get('story')._id
                     }).fetch()[0];
+
+                    var addPoints = function (p) {
+                        var user = Meteor.users.find({
+                            _id: Meteor.userId()
+                        }).fetch()[0];
+                        if (user.profile) {
+                            user.profile += p;
+                        } else {
+                            user.profile = p;
+                        }
+                        Meteor.users.update({
+                            _id: Meteor.userId()
+                        }, {
+                            $set: {
+                                'profile': user.profile
+                            }
+                        });
+                    };
+
                     if (story.winner === null) {
-                        Session.set('youWinner','Jesteś zwycięzcą.');
+                        Session.set('youWinner', 'Jesteś zwycięzcą.');
                         story.winner = Meteor.userId();
                         Storys.update({
                             _id: story._id,
@@ -56,18 +75,25 @@ if (Meteor.isClient) {
                                 winner: story.winner
                             }
                         });
+                        //dodaj 3 pkt
+                        addPoints(3);
+
+                    } else {
+
+                        //dodaj 1 pkt
+                        addPoints(1);
                     }
                 } else {
                     Session.set('gameWon', null);
-                    Session.set('youWinner',null);
+                    Session.set('youWinner', null);
                 }
             }
             return false;
         },
-        'click #back-button': function(event){
+        'click #back-button': function (event) {
             event.preventDefault();
             Session.set('showPlayStoryForm', true);
-            Session.set('showQuestFormVisible',false);
+            Session.set('showQuestFormVisible', false);
             return false;
         }
     });
