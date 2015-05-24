@@ -26,18 +26,19 @@ if (Meteor.isClient) {
     };
 
 
-
     Template.questCreateForm.events({
         'submit form': function (event) {
             //Session.set('counter', Session.get('counter') + 1);
             event.preventDefault();
             var desc = event.target.description.value;
             var pass = event.target.password.value;
-            var newOne = questFactory.makeAQuest(Blaze._globalHelpers.globalTemplate.newStoryQuests.length, desc, pass, null);
-            Blaze._globalHelpers.globalTemplate.newStoryQuests.push(newOne);
-            var x = Blaze._globalHelpers.globalTemplate.newStoryQuests;
-            Session.set('newStoryQuests', x);
-            $('.rerender').trigger("create");
+            if (desc && pass) {
+                var newOne = questFactory.makeAQuest(Blaze._globalHelpers.globalTemplate.newStoryQuests.length, desc, pass, null);
+                Blaze._globalHelpers.globalTemplate.newStoryQuests.push(newOne);
+                var x = Blaze._globalHelpers.globalTemplate.newStoryQuests;
+                Session.set('newStoryQuests', x);
+                //$('.rerender').trigger("create");
+            }
             return false;
         }
     });

@@ -1,13 +1,40 @@
 if (Meteor.isClient) {
+
+    var StoryFactory = {
+        makeAStory: function (name, description, quests, startDate, authorId) {
+            return {
+                name: name,
+                description: description,
+                startDate: startDate,
+                authorId: authorId,
+                winner: null,
+                update: function () {
+                    Storys.update(this);
+                },
+
+            };
+        }
+
+    };
+
     Template.storyCreateForm.events({
         'submit form': function (event) {
             //Session.set('counter', Session.get('counter') + 1);
             event.preventDefault();
-            /*
-            var desc = event.target.description.value;
-            var pass = event.target.password.value;
-            var newOne = questFactory.makeAQuest(Template.body.helpers.newStoryQuests.length, desc, pass, null);
-            Template.body.helpers.newStoryQuests.push(newOne);*/
+
+            var desc = event.target.newGameName.value;
+            var quests = Blaze._globalHelpers.globalTemplate.newStoryQuests;
+
+
+            var newOne = StoryFactory.makeAStory(desc, "", null, null, Blaze._globalHelpers.currentUser()._id)
+            Storys.insert(newOne, function (error, _id) {
+                for (var i = 0; i < quests.length; i++) {
+                    quests[i].storyId = _id;
+                    Quests.insert(quests[i]);
+                }
+            });
+
+
             return false;
         }
     });
