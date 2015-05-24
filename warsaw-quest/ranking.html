@@ -1,0 +1,18 @@
+<template name="ranking">
+
+    <div class="form-group">
+        <label>
+            <h3>Najlepsi:</h3>
+        </label>
+        <ul>
+            {{#each bestUsers}} {{> rankingItem}} {{/each}}
+        </ul>
+    </div>
+
+</template>
+
+
+<template name="rankingItem">
+    <li>{{username}} - <b><u>{{profile}}</u></b>
+    </li>
+</template>
