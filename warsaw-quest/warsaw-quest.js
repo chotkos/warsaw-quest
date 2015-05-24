@@ -16,7 +16,7 @@ if (Meteor.isClient) {
 
     // counter starts at 0
 
-     Template.body.helpers({
+    Template.body.helpers({
         showQuestFormVisible: function () {
             return Session.get('showQuestFormVisible');
         },
@@ -27,11 +27,18 @@ if (Meteor.isClient) {
             var arr = Storys.find({
                 authorId: Meteor.userId()
             }).fetch();
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].winner) {
+                    arr[i].winnerName = Meteor.users.find({
+                        _id: arr[i].winner
+                    }).fetch()[0].username;
+                }
+            }
             if (arr.length > 0) {
                 if (arr.length > 5) {
                     arr = arr.slice(Math.max(arr.length - 5, 1));
                 }
-
                 arr = arr.reverse();
                 Session.set('getMyStories', arr);
                 Session.set('showMyGames', true);

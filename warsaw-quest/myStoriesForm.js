@@ -16,9 +16,6 @@ if (Meteor.isClient) {
                     }).fetch()[0].username;
                 }
             }
-            arr = Storys.find({
-                authorId: Meteor.userId()
-            }).fetch();
             if (arr.length > 0) {
                 if (arr.length > 5) {
                     arr = arr.slice(Math.max(arr.length - 5, 1));
