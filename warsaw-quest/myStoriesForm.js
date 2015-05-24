@@ -6,7 +6,7 @@ if (Meteor.isClient) {
         getMyStories: function () {
             var arr = Storys.find({
                 authorId: Meteor.userId()
-            }).fetch()
+            }).fetch();
             arr = arr.slice(Math.max(arr.length - 5, 1)).reverse();
 
             for (var i = 0; i < arr.length; i++) {
@@ -15,6 +15,17 @@ if (Meteor.isClient) {
                         _id: arr[i].winner
                     }).fetch()[0].username;
                 }
+            }
+            arr = Storys.find({
+                authorId: Meteor.userId()
+            }).fetch();
+            if (arr.length > 0) {
+                if (arr.length > 5) {
+                    arr = arr.slice(Math.max(arr.length - 5, 1));
+                }
+                arr = arr.reverse();
+                Session.set('getMyStories', arr);
+                Session.set('showMyGames', true);
             }
             return arr;
         }

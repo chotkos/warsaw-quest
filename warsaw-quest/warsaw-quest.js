@@ -13,18 +13,31 @@ if (Meteor.isClient) {
 
     Session.set('showPlayStoryForm', true);
     Session.set('showQuestFormVisible', false);
+    Session.set('showMyGames', false);
 
     // counter starts at 0
 
     Template.body.helpers({
         showQuestFormVisible: function () {
             return Session.get('showQuestFormVisible');
-        }
-    });
-
-    Template.body.helpers({
+        },
         showPlayStoryForm: function () {
             return Session.get('showPlayStoryForm');
+        },
+        showMyGames: function () {
+            var arr = Storys.find({
+                authorId: Meteor.userId()
+            }).fetch();
+            if (arr.length > 0) {
+                if (arr.length > 5) {
+                    arr = arr.slice(Math.max(arr.length - 5, 1));
+                }
+
+                arr = arr.reverse();
+                Session.set('getMyStories', arr);
+                Session.set('showMyGames', true);
+            }
+            return arr;
         }
     });
 

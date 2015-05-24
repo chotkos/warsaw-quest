@@ -47,6 +47,21 @@ if (Meteor.isClient) {
                         Quests.insert(quests[i]);
                     }
                 });
+
+                var arr = Storys.find({
+                    authorId: Meteor.userId()
+                }).fetch();
+                if (arr.length > 0) {
+                    if (arr.length > 5) {
+                        arr = arr.slice(Math.max(arr.length - 5, 1));
+                    }
+
+                    arr = arr.reverse();
+                    Session.set('getMyStories', arr);
+                    Session.set('showMyGames', true);
+                }
+
+                //Session.set('showMyGames', true);
             } else {
                 Session.set('creationResult', 'Operacja nie powiodła się!');
 
