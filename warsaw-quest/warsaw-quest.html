@@ -27,7 +27,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div class="logo-center">
-                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo">
+                    <a class="navbar-brand" href="index.html"><img class="logo-img" src="images/WarsawQuest.png" alt="logo">
                     </a>
                 </div>
             </div>
@@ -39,22 +39,18 @@
     <section id="main-slider" class="no-margin">
 
         <div class="col-sm-12 container main-content">
-            {{#if currentUser}}
-            {{#if showPlayStoryForm }}
+            {{#if currentUser}} {{#if showPlayStoryForm }}
             <div class="text-center row form-block" id="play-story-container"> {{> playStoryForm}}</div>
-            
+
             <div class="text-center row form-block" id="play-story-container2"> {{> myStoriesForm}}
             </div>
             <div class="text-center row form-block" id="play-story-container3">
                 <div class="col-sm-12">{{> storyCreateForm}}</div>
                 <div class="col-sm-12">{{>questCreateForm}}</div>
             </div>
-            {{/if}}
-            {{ showQuestFormVisible }}
-            {{#if showQuestFormVisible}}
+            {{/if}} {{ showQuestFormVisible }} {{#if showQuestFormVisible}}
             <div class="text-center row form-block" id="play-story-container4">{{>showQuestForm}}</div>
-            {{/if}}
-            {{/if}}
+            {{/if}} {{/if}}
         </div>
 
     </section>

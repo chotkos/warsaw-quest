@@ -1,18 +1,18 @@
 <template name="showQuestForm">
-   <h1>{{ story.name }}</h1>
+    <h1>{{ story.name }}</h1>
     <div class="container">
-       <form>
-        <div class="form-group">
-        {{ currentQuest.description }}
-        <label>
-                <h3>Rozwiązanie:</h3>
-            </label>
-            <div class="form-group" id="mainData">
-                <input type="text" class="form-group" id="password">
+        <form>
+            <div class="form-group">
+                <h1>{{gameWon}}</h1> {{#unless gameWon}} {{ currentQuest.description }}
+                <label>
+                    <h3>Rozwiązanie:</h3>
+                </label>
+                <div class="form-group" id="mainData">
+                    <input type="text" class="form-group" id="password">
+                </div>
+
+                <input type="submit" class="btn btn-success" id="playGame" value="Przejdź dalej!" /> {{/unless}}
             </div>
-            
-            <input type="submit" class="btn btn-success" id="playGame" value="Przejdź dalej!" />
-    </div> 
-    </form>
+        </form>
     </div>
 </template>

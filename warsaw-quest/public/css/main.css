@@ -1360,3 +1360,8 @@ li {
     line-height: initial!important;
     list-style: none;
 }
+
+.logo-img {
+    width: 280px;
+    height: auto;
+}

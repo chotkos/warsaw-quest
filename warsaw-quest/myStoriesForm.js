@@ -1,14 +1,22 @@
 if (Meteor.isClient) {
-    Meteor.subscribe("story");
 
     var loggedUserId = Meteor.userId();
-
+    Meteor.subscribe("directory");
     Template.myStoriesForm.helpers({
         getMyStories: function () {
             var arr = Storys.find({
                 authorId: Meteor.userId()
-            }).fetch();
-            return arr.slice(Math.max(arr.length - 5, 1)).reverse();
+            }).fetch()
+            arr = arr.slice(Math.max(arr.length - 5, 1)).reverse();
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].winner) {
+                    arr[i].winnerName = Meteor.users.find({
+                        _id: arr[i].winner
+                    }).fetch()[0].username;
+                }
+            }
+            return arr;
         }
     });
 
