@@ -38,7 +38,7 @@ if (Meteor.isClient) {
 
             var canSave = Storys.find({
                 name: desc
-            }).fetch().length > 0 ? false : true;
+            }).fetch().length > 0 || quests.length === 0 ? false : true;
             if (canSave) {
                 Session.set('creationResult', 'Operacja powiodła się!');
                 Storys.insert(newOne, function (error, _id) {
