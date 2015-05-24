@@ -1,6 +1,7 @@
 if (Meteor.isClient) {
     Meteor.subscribe('quests');
     Session.set('gameWon', null);
+    Session.set('youWinner',null);
 
     var getQuestsByStory = function (story, stepNumber) {
         return Quests.find({
@@ -23,6 +24,9 @@ if (Meteor.isClient) {
         },
         gameWon: function () {
             return Session.get('gameWon');
+        },
+        youWinner: function () {
+            return Session.get('youWinner');
         }
     });
 
@@ -43,6 +47,7 @@ if (Meteor.isClient) {
                         _id: Session.get('story')._id
                     }).fetch()[0];
                     if (story.winner === null) {
+                        Session.set('youWinner','Jesteś zwycięzcą.');
                         story.winner = Meteor.userId();
                         Storys.update({
                             _id: story._id,
@@ -54,8 +59,15 @@ if (Meteor.isClient) {
                     }
                 } else {
                     Session.set('gameWon', null);
+                    Session.set('youWinner',null);
                 }
             }
+            return false;
+        },
+        'click #back-button': function(event){
+            event.preventDefault();
+            Session.set('showPlayStoryForm', true);
+            Session.set('showQuestFormVisible',false);
             return false;
         }
     });

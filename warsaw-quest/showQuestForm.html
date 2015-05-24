@@ -3,7 +3,7 @@
     <div class="container">
         <form>
             <div class="form-group">
-                <h1>{{gameWon}}</h1> {{#unless gameWon}} {{ currentQuest.description }}
+                <h1>{{gameWon}}</h1> <h2>{{ youWinner }}</h2> {{#if gameWon }}<button class="btn btn-success fancy-button" id="back-button">Wróc do listy gier</button>{{/if}} {{#unless gameWon}} {{ currentQuest.description }}
                 <label>
                     <h3>Rozwiązanie:</h3>
                 </label>

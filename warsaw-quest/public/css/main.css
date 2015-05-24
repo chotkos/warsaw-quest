@@ -1404,3 +1404,7 @@ li {
     background: #1bbc9b;
     color: #ffffff;
 }
+
+.error-info{
+    line-height:20px;
+}

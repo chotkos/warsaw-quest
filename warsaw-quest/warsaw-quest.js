@@ -13,11 +13,10 @@ if (Meteor.isClient) {
 
     Session.set('showPlayStoryForm', true);
     Session.set('showQuestFormVisible', false);
-    Session.set('showMyGames', false);
 
     // counter starts at 0
 
-    Template.body.helpers({
+     Template.body.helpers({
         showQuestFormVisible: function () {
             return Session.get('showQuestFormVisible');
         },

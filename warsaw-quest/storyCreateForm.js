@@ -47,7 +47,6 @@ if (Meteor.isClient) {
                         Quests.insert(quests[i]);
                     }
                 });
-
                 var arr = Storys.find({
                     authorId: Meteor.userId()
                 }).fetch();
@@ -61,7 +60,9 @@ if (Meteor.isClient) {
                     Session.set('showMyGames', true);
                 }
 
-                //Session.set('showMyGames', true);
+                event.target.newGameName.value = null;
+                Blaze._globalHelpers.globalTemplate.newStoryQuests = [];
+                Session.set('newStoryQuests', []);
             } else {
                 Session.set('creationResult', 'Operacja nie powiodła się!');
 
